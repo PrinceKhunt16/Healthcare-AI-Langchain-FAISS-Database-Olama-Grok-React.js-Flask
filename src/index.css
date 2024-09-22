@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: Google-Sans;
+}
+
+.active-link {
+    background: linear-gradient(to right, white, rgba(7, 96, 70, 0.2));
+}
+
+.iframe-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.fixed-search-bar {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.card {
+    background-color: #cbd5e1;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.card:hover {
+    background-color: #c2cbd6;
+}
+
+.odd-card:hover {
+    transform: translate(-5px, -5px);
+}
+
+.even-card:hover {
+    transform: translate(5px, -5px);
+}
+
+.left-message {
+    @apply flex justify-start;
+}
+
+.right-message {
+    @apply flex justify-end;
+}
+
+.markdown>* {
+    all: revert;
+}
+
+.transition-text {
+    transition: all 300ms ease-in-out;
+}
+
+@font-face {
+    font-family: 'Google-Sans';
+    src: url('/public/fonts/google-sans/Google-Sans-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Google-Sans-Light';
+    src: url('/public/fonts/google-sans/Google-Sans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Google-Sans-Regular';
+    src: url('/public/fonts/google-sans/Google-Sans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Google-Sans-Medium';
+    src: url('/public/fonts/google-sans/Google-Sans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: medium;
+}
+
+@font-face {
+    font-family: 'Google-Sans-Bold';
+    src: url('/public/fonts/google-sans/Google-Sans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'Google-Sans-Black';
+    src: url('/public/fonts/google-sans/Google-Sans-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: black;
+}
