@@ -33,7 +33,7 @@ This text is **bold** and this text is *italic*. You can even _**combine**_ them
   return (
     <div className="p-6 bg-gradient-to-br from-blue-100/50 to-blue-200 min-h-screen text-black text-lg font-light flex flex-col">
       <div className='flex justify-between'>
-        <h1 className="text-4xl font-thin mb-8">Upload and Get Report Summary</h1>
+        <h1 className="text-4xl font-medium mb-8">Upload and Get Report Summary</h1>
         <label>
           <div className='bg-slate-300 cursor-pointer hover:bg-slate-300 w-[40px] h-[40px] flex justify-center items-center rounded-full'>
             <MdOutlineSimCardDownload size={24} />

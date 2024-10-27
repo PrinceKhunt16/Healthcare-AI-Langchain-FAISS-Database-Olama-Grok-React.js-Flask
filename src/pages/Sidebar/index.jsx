@@ -49,7 +49,7 @@ const Sidebar = ({ ml, setMl }) => {
           <MdOutlineSegment className='w-[22px]' size={22} />
         </button>
         <h1
-          className={`text-[33px] transition-all duration-300 transform absolute ${!isText ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[-10px]'} ease-in-out`}
+          className={`text-[32px] transition-all duration-300 transform absolute ${!isText ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[-10px]'} ease-in-out`}
           style={{ visibility: !isText ? 'visible' : 'hidden', left: '50px' }} 
         >
           Healthcare AI

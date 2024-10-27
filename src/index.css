@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    font-family: Google-Sans;
+    font-family: Lato;
 }
 
 .active-link {
@@ -71,46 +71,4 @@ body {
 
 .transition-text {
     transition: all 300ms ease-in-out;
-}
-
-@font-face {
-    font-family: 'Google-Sans';
-    src: url('/public/fonts/google-sans/Google-Sans-Light.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Google-Sans-Light';
-    src: url('/public/fonts/google-sans/Google-Sans-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Google-Sans-Regular';
-    src: url('/public/fonts/google-sans/Google-Sans-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Google-Sans-Medium';
-    src: url('/public/fonts/google-sans/Google-Sans-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: medium;
-}
-
-@font-face {
-    font-family: 'Google-Sans-Bold';
-    src: url('/public/fonts/google-sans/Google-Sans-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: bold;
-}
-
-@font-face {
-    font-family: 'Google-Sans-Black';
-    src: url('/public/fonts/google-sans/Google-Sans-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: black;
 }

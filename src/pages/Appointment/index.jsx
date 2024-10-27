@@ -257,7 +257,7 @@ const Appointment = () => {
       ) : (
         <div>
           <div className='flex justify-between'>
-            <h1 className="text-4xl font-thin mb-8">Appointment</h1>
+            <h1 className="text-4xl font-medium mb-8">Appointment</h1>
             <div>
               <button className='bg-slate-400/50 hover:bg-slate-400/70  w-[40px] h-[40px] flex justify-center items-center rounded-full' onClick={handleOpenPopup}>
                 <AiOutlinePlus size={24} />
@@ -265,7 +265,7 @@ const Appointment = () => {
             </div>
           </div>
           <div className='mb-8'>
-            <h3 className="text-3xl font-thin mb-4">Booked</h3>
+            <h3 className="text-3xl font-medium mb-4">Booked</h3>
             {bookedAppointments.length > 0 ? (
               <table className="rounded-xl bg-white w-full overflow-hidden">
                 <thead>
@@ -309,7 +309,7 @@ const Appointment = () => {
             )}
           </div>
           <div className='mb-8'>
-            <h3 className="text-3xl font-thin mb-4">Liberated</h3>
+            <h3 className="text-3xl font-medium mb-4">Liberated</h3>
             {liberatedAppointments.length > 0 ? (
               <table className="rounded-xl bg-white border-collapse w-full overflow-hidden">
                 <thead>

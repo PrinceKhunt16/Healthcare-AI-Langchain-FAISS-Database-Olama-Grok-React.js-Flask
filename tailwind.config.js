@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        googlesans: ['Google-Sans'],
+        lato: ['Lato'],
       },
     },
   },
