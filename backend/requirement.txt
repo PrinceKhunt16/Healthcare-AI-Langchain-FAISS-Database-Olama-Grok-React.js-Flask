@@ -1,0 +1,9 @@
+flask
+flask-cors
+flask_pymongo
+pandas
+tensorflow
+scikit-learn
+tensorflow_hub
+dotenv
+google-generativeai

@@ -1,18 +1,13 @@
 import os
 import re
-import sys
 from datetime import datetime
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'resource')))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'chatbot')))
-
-from recommender import Recommender
-from Gemini import Gemini
+from resource.finder import recommander
+from chatbot.gemini import gemini
 
 app = Flask(__name__)
 CORS(app, origins="*", supports_credentials=True)
@@ -94,7 +89,7 @@ def resource():
             return jsonify({'error': 'parameter missing'}), 400
 
         input = data['input']
-        response = Recommender(input)
+        response = recommander(input)
         
         return jsonify({
             'input': input,
@@ -111,7 +106,7 @@ def handle_prompt():
         return jsonify({'error': 'parameter missing'}), 400
     
     prompt = data['prompt']
-    response = Gemini(prompt)
+    response = gemini(prompt)
 
     return jsonify({
         'prompt': prompt,

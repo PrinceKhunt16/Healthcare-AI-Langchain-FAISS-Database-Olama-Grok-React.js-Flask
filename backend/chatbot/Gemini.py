@@ -1,14 +1,16 @@
 import google
+import os
+from dotenv import load_dotenv
 import google.generativeai as genai
 from time import sleep
-from GeminiHist import data
+from backend.chatbot.history import data
 
-def Gemini(prompt, retries=3):
-    # Configure the API key for Google Generative AI
-    api_key = "AIzaSyD9EnNQ6cxCVAlIsY5O0m-6rwdb-4tVEfU"
+load_dotenv()
+
+def gemini(prompt, retries=3):
+    api_key = os.getenv('GEMINI_API_KEY')
     genai.configure(api_key=api_key)
 
-    # Define the generation configuration
     generation_config = {
         "temperature": 1,
         "top_p": 0.95,
@@ -17,7 +19,6 @@ def Gemini(prompt, retries=3):
         "response_mime_type": "text/plain",
     }
 
-    # Initialize the GenerativeModel with the configuration
     model = genai.GenerativeModel(
         model_name="gemini-1.5-pro",
         generation_config=generation_config,
