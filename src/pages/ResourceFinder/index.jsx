@@ -37,7 +37,7 @@ const ResourceFinder = () => {
 
   return (
     <div>
-      <div className="p-6 bg-gradient-to-br from-blue-100/50 to-blue-200 min-h-screen text-black text-lg font-light flex flex-col justify-between">
+      <div className="p-6 bg-gradient-to-br from-blue-100/50 to-blue-200 min-h-screen text-black text-lg font-normal flex flex-col justify-between">
         <div>
           <div className="w-full flex justify-center">
             <div className="flex items-center w-full max-w-xl relative">
@@ -49,7 +49,7 @@ const ResourceFinder = () => {
                 value={input}
                 onKeyDown={handleKeyDown}
               />
-              <button onClick={() => fetchRecommendations()} className="absolute right-2 bg-none text-white shadow-2xl font-light text-base cursor-pointer">
+              <button onClick={() => fetchRecommendations()} className="absolute right-2 bg-none text-white shadow-2xl font-normal text-base cursor-pointer">
                 <BsFillArrowDownCircleFill fontSize={34} color='#1f2937' />
               </button>
             </div>
@@ -65,7 +65,7 @@ const ResourceFinder = () => {
                     title={video.title}
                   />
                 </div>
-                <h2 className="text-lg font-light m-2">{video.title.slice(0, 65)}{video.title.length > 60 ? "..." : ""}</h2>
+                <h2 className="text-lg font-normal m-2">{video.title.slice(0, 65)}{video.title.length > 60 ? "..." : ""}</h2>
               </div>
             ))}
           </div>

@@ -53,7 +53,7 @@ const News = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-gradient-to-br from-blue-100/80 to-blue-200 min-h-screen text-black text-lg font-light flex flex-col">
+    <div className="p-6 bg-gradient-to-br from-blue-100/80 to-blue-200 min-h-screen text-black text-lg font-normal flex flex-col">
       <h1 className="text-4xl font-medium mb-8">Health News</h1>
       <div className="mb-8">
         <h2 className="text-3xl font-medium mb-4">Latest Medical News</h2>

@@ -203,7 +203,7 @@ const Appointment = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-gradient-to-br from-blue-100/50 to-blue-200 min-h-screen text-black text-lg font-light">
+    <div className="p-6 bg-gradient-to-br from-blue-100/50 to-blue-200 min-h-screen text-black text-lg font-normal">
       {user.role == "Patient" ? (
         <div>
           <div className="max-w-xl mx-auto mb-6">
@@ -222,7 +222,7 @@ const Appointment = () => {
                   className="flex-grow pr-12 p-3 border-none rounded-full bg-slate-300 focus:outline-none placeholder-black text-lg shadow-xl"
                 />
                 <button
-                  className="absolute right-2 bg-none text-white shadow-2xl font-light text-base cursor-pointer"
+                  className="absolute right-2 bg-none text-white shadow-2xl font-normal text-base cursor-pointer"
                   onClick={handleSearchDoctors}
                 >
                   <BsFillArrowDownCircleFill fontSize={34} color="#1f2937" />

@@ -98,7 +98,7 @@ const Chatbot = ({ ml }) => {
   }, [chats]);
 
   return (
-    <div className="p-6 bg-gradient-to-br from-blue-100/50 to-blue-200 min-h-screen text-black text-lg font-light">
+    <div className="p-6 bg-gradient-to-br from-blue-100/50 to-blue-200 min-h-screen text-black text-lg font-normal">
       <div className='max-w-screen-lg mx-auto'>
         <div className="mb-[80px] overflow-y-auto text-xl">
           {chats.map((chat, index) => (
@@ -132,7 +132,7 @@ const Chatbot = ({ ml }) => {
               className="flex-grow pr-12 p-3 border-none rounded-full bg-slate-300 focus:outline-none placeholder-black text-lg shadow-xl"
             />
             <button
-              className="absolute right-2 bg-none text-white shadow-2xl font-light text-base cursor-pointer"
+              className="absolute right-2 bg-none text-white shadow-2xl font-normal text-base cursor-pointer"
               onClick={handleSendMessage}
             >
               <BsFillArrowUpCircleFill fontSize={34} color="#1f2937" />

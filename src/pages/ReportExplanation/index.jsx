@@ -31,7 +31,7 @@ This text is **bold** and this text is *italic*. You can even _**combine**_ them
   };
 
   return (
-    <div className="p-6 bg-gradient-to-br from-blue-100/50 to-blue-200 min-h-screen text-black text-lg font-light flex flex-col">
+    <div className="p-6 bg-gradient-to-br from-blue-100/50 to-blue-200 min-h-screen text-black text-lg font-normal flex flex-col">
       <div className='flex justify-between'>
         <h1 className="text-4xl font-medium mb-8">Upload and Get Report Summary</h1>
         <label>
@@ -49,7 +49,7 @@ This text is **bold** and this text is *italic*. You can even _**combine**_ them
       {file && (
         <div className="bg-slate-300/70 p-4 rounded-xl shadow-sm border-slate-200">
           <h2 className="text-2xl font-semibold mb-4">Report Summary:</h2>
-          <div className="prose max-w-full">
+          <div className="prose max-w-full font-medium">
             <ReactMarkdown remarkPlugins={[gfm]}>{summary}</ReactMarkdown>
           </div>
         </div>

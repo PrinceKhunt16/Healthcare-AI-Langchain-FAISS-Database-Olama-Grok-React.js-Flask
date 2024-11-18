@@ -59,7 +59,7 @@ const Sidebar = ({ ml, setMl }) => {
         <li className={`h-[52px] flex items-center mb-2 px-4 ${isActive('/')}`}>
           <Link
             to="/"
-            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-light relative`}
+            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-normal relative`}
           >
             <GoPerson size={22} color={`${isActive('/') && "black"}`} />
             <span
@@ -73,7 +73,7 @@ const Sidebar = ({ ml, setMl }) => {
         <li className={`h-[52px] flex items-center mb-2 px-4 ${isActive('/resource-finder')}`}>
           <Link
             to="/resource-finder"
-            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-light relative`}
+            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-normal relative`}
           >
             <PiVideoLight size={22} color={`${isActive('/resource-finder') && "black"}`} />
             <span
@@ -87,7 +87,7 @@ const Sidebar = ({ ml, setMl }) => {
         <li className={`h-[52px] flex items-center mb-2 px-4 ${isActive('/report-explanation')}`}>
           <Link
             to="/report-explanation"
-            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-light relative`}
+            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-normal relative`}
           >
             <CiFileOn size={22} color={`${isActive('/report-explanation') && "black"}`} />
             <span
@@ -101,7 +101,7 @@ const Sidebar = ({ ml, setMl }) => {
         <li className={`h-[52px] flex items-center mb-2 px-4 ${isActive('/chatbot')}`}>
           <Link
             to="/chatbot"
-            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-light relative`}
+            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-normal relative`}
           >
             <CiChat2 size={22} color={`${isActive('/chatbot') && "black"}`} />
             <span
@@ -115,7 +115,7 @@ const Sidebar = ({ ml, setMl }) => {
         <li className={`h-[52px] flex items-center mb-2 px-4 ${isActive('/global-news')}`}>
           <Link
             to="/global-news"
-            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-light relative`}
+            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-normal relative`}
           >
             <PiNewspaperClippingLight size={22} color={`${isActive('/global-news') && "black"}`} />
             <span
@@ -129,7 +129,7 @@ const Sidebar = ({ ml, setMl }) => {
         <li className={`h-[52px] flex items-center mb-2 px-4 ${isActive('/appointment')}`}>
           <Link
             to="/appointment"
-            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-light relative`}
+            className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-normal relative`}
           >
             <PiAddressBookLight size={22} color={`${isActive('/appointment') && "black"}`} />
             <span
@@ -145,7 +145,7 @@ const Sidebar = ({ ml, setMl }) => {
         <Link
           onClick={handleLogout}
           to="/auth"
-          className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-light relative`}
+          className={`flex items-center gap-3 w-full text-lg cursor-pointer py-3 font-normal relative`}
         >
           <PiSignOutLight size={22} />
           <span
