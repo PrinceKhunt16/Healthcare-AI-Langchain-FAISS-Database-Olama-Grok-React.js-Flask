@@ -44,7 +44,7 @@ const ResourceFinder = () => {
               <input
                 type="text"
                 placeholder="What do you wanna see?"
-                className="flex-grow pr-12 p-3 border-none rounded-full bg-slate-300 focus:outline-none placeholder-black text-lg shadow-xl"
+                className="flex-grow pr-12 p-3 border-none rounded-full bg-slate-300 focus:outline-none placeholder-slate-500 text-lg shadow-xl"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
                 onKeyDown={handleKeyDown}

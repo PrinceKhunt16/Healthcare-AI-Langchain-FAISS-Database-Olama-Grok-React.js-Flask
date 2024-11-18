@@ -219,7 +219,7 @@ const Appointment = () => {
                       handleSearchDoctors();
                     }
                   }}
-                  className="flex-grow pr-12 p-3 border-none rounded-full bg-slate-300 focus:outline-none placeholder-black text-lg shadow-xl"
+                  className="flex-grow pr-12 p-3 border-none rounded-full bg-slate-300 focus:outline-none placeholder-slate-500 text-lg shadow-xl"
                 />
                 <button
                   className="absolute right-2 bg-none text-white shadow-2xl font-normal text-base cursor-pointer"
