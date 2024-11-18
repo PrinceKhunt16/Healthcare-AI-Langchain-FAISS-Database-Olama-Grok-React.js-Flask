@@ -7,7 +7,7 @@ import kagglehub
 import pickle
 
 def recommander(input):
-    os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'  # Disable oneDNN optimizations
+    os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
     try:
         path = kagglehub.model_download("google/universal-sentence-encoder/tensorFlow2/universal-sentence-encoder")
@@ -22,7 +22,7 @@ def recommander(input):
         print(f"Error loading model: {e}")
         return []
 
-    file_name = 'resource/data.csv'
+    file_name = 'data.csv'
     absolute_path = os.path.abspath(file_name)
 
     try:
