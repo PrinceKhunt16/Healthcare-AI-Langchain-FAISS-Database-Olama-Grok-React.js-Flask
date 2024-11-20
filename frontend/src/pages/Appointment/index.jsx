@@ -70,7 +70,7 @@ const Appointment = () => {
 
   const handleApprovedAppointment = async (id, status) => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/appointments/not-approved/${id}`, {
+      const response = await fetch(`http://127.0.0.1:5000/appointments/not-approved/${id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

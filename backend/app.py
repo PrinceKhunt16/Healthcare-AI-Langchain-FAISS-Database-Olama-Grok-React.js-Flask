@@ -8,9 +8,11 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
 from resource.finder import recommander
 from chatbot.gemini import gemini
-
+from report.explanation import get_summary
+ 
 app = Flask(__name__)
-CORS(app, origins="*", supports_credentials=True)
+# CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+CORS(app)
 CONNECTION_STRING = "mongodb://localhost:27017/HCAI"
 app.config["MONGO_URI"] = CONNECTION_STRING
 app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'uploads')
@@ -315,7 +317,7 @@ def book_appointment(appointment_id):
     else:
         return jsonify({"message": "Failed to book appointment"}), 500
 
-@app.route('/api/appointments/not-approved/<appointment_id>', methods=['POST'])
+@app.route('/appointments/not-approved/<appointment_id>', methods=['POST'])
 def not_approved_appointment(appointment_id):
     data = request.json
     approved = data.get('approved')
@@ -339,5 +341,19 @@ def not_approved_appointment(appointment_id):
     else:
         return jsonify({"message": "Failed to update appointment status"}), 500
 
+@app.route('/report-summary', methods=['POST'])
+def report_summary(): 
+    print(request.files)
+    if 'file' not in request.files:
+        return jsonify({
+            "status": "error",
+            "message": "No file provided. Please upload a health report."
+        }), 400
+
+    file = request.files['file']
+    response = get_summary(file)
+
+    return jsonify(response), 200 if response["status"] == "success" else 500
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)

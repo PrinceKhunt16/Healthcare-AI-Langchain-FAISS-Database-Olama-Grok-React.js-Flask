@@ -4,7 +4,7 @@ import { BsFillArrowDownCircleFill } from "react-icons/bs";
 
 const ResourceFinder = () => {
   const [content, setContent] = useState([]);
-  const [input, setInput] = useState('How to do care of diabetes ?');
+  const [input, setInput] = useState('');
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {

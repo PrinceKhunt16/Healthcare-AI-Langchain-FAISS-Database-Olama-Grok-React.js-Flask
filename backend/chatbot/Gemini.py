@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 import google.generativeai as genai
 from time import sleep
-from chatbot.history import data
+from chatbot.data import data
 
 load_dotenv()
 

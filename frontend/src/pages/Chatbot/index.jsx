@@ -125,7 +125,7 @@ const Chatbot = ({ ml }) => {
           <div className="flex items-center w-full max-w-xl relative">
             <input
               type="text"
-              placeholder="Message ChatBot"
+              placeholder="Message Chatbot"
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyDown={handleKeyDown}
