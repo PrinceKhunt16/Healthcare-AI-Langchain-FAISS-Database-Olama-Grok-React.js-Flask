@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
 from resource.finder import recommander
 from chatbot.gemini import gemini
-from report.explanation import get_summary
+from report.explanation import get_summary, initialize_chatbot_chain
  
 app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
@@ -343,7 +343,6 @@ def not_approved_appointment(appointment_id):
 
 @app.route('/report-summary', methods=['POST'])
 def report_summary(): 
-    print(request.files)
     if 'file' not in request.files:
         return jsonify({
             "status": "error",
@@ -354,6 +353,16 @@ def report_summary():
     response = get_summary(file)
 
     return jsonify(response), 200 if response["status"] == "success" else 500
+
+@app.route('/summary-chatbot', methods=['POST'])
+def summary_chatbot(): 
+    data = request.json
+    summary = data.get('summary')
+    question = data.get('question')
+    session_id = data.get('session_id')
+    chatbot_chain = initialize_chatbot_chain(summary, session_id)
+    response = chatbot_chain.invoke(question)
+    return jsonify({"response": response["answer"]}), 200 if response else 500
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

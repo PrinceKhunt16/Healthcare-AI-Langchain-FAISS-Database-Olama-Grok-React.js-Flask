@@ -1,23 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import { MdOutlineSimCardDownload } from "react-icons/md";
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
 
 const ReportExplanation = () => {
+  const [user] = useState(JSON.parse(localStorage.getItem('user')));
   const initialChats = [
-    { sender: 'bot', message: 'Welcome to Healthcare AI Chatbot. How can I assist you today?' },
-  ];  
+    { sender: 'bot', message: 'You can ask me question about this report summary.' },
+  ];
   const [chats, setChats] = useState(initialChats);
   const [inputMessage, setInputMessage] = useState('');
   const [summary, setSummary] = useState("");
   const [show, setShow] = useState(false);
+  const endOfMessagesRef = useRef(null);
+  const [typingSpeed] = useState(10);
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      e.preventDefault(); 
+      e.preventDefault();
       handleSendMessage();
     }
+  };
+
+  const simulation = (message) => {
+    let index = 0;
+    let currentMessage = '';
+    const typingInterval = setInterval(() => {
+      if (index < message.length) {
+        currentMessage += message[index];
+        index += 1;
+        setChats((prevChats) => {
+          const updatedChats = [...prevChats];
+          const lastBotMessage = updatedChats[updatedChats.length - 1];
+          if (lastBotMessage?.sender === 'bot') {
+            updatedChats[updatedChats.length - 1].message = currentMessage;
+          } else {
+            updatedChats.push({ sender: 'bot', message: currentMessage });
+          }
+          return updatedChats;
+        });
+
+        endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, typingSpeed);
   };
 
   const handleFileUpload = async (event) => {
@@ -63,28 +91,28 @@ const ReportExplanation = () => {
       setInputMessage('');
 
       try {
-        // const response = await fetch('http://127.0.0.1:5000/chatbot', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: JSON.stringify({ prompt: inputMessage }),
-        // });
+        const response = await fetch('http://127.0.0.1:5000/summary-chatbot', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ summary: summary, question: inputMessage, session_id: user._id }),
+        });
 
-        // if (!response.ok) {
-        //   throw new Error('Network response was not ok');
-        // }
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
 
-        // const data = await response.json();
+        const data = await response.json();
 
-        // const botResponse = {
-        //   sender: 'bot',
-        //   message: data.output || 'I’m here to help!',
-        //   timestamp: new Date().toLocaleTimeString(),
-        // };
+        const botResponse = {
+          sender: 'bot',
+          message: data.output || 'I’m here to help!',
+          timestamp: new Date().toLocaleTimeString(),
+        };
 
-        // setChats((prevChats) => [...prevChats, botResponse]);
-        // simulation(data.output)
+        setChats((prevChats) => [...prevChats, botResponse]);
+        simulation(data.output)
       } catch (error) {
         console.error('Error:', error);
         const errorResponse = {
@@ -119,6 +147,24 @@ const ReportExplanation = () => {
             <h2 className="text-2xl font-semibold mb-4">Report Summary:</h2>
             <div className="prose max-w-full font-medium">
               <ReactMarkdown remarkPlugins={[gfm]}>{summary}</ReactMarkdown>
+            </div>
+          </div>
+          <div className='max-w-screen-lg w-full mx-auto'>
+            <div className="mb-[80px] overflow-y-auto text-xl">
+              {chats.map((chat, index) => (
+                <div
+                  key={index}
+                  className={`my-4 ${chat.sender === 'bot' ? 'left-message' : 'right-message'}`}
+                >
+                  <div
+                    className={`max-w-3xl backdrop-blur-xl p-2 rounded-xl inline-block ${chat.sender === 'bot' ? '' : 'bg-slate-300/90'
+                      }`}
+                  >
+                    <ReactMarkdown remarkPlugins={[gfm]}>{chat.message}</ReactMarkdown>
+                  </div>
+                </div>
+              ))}
+              <div ref={endOfMessagesRef} />
             </div>
           </div>
           <div className={`flex justify-center mt-4 transition-all duration-300`}>

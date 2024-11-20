@@ -121,25 +121,25 @@ const Chatbot = ({ ml }) => {
         </div>
       </div>
       <div className="max-w-xl mx-auto">
-      <div className={`fixed-search-bar l-${ml} flex justify-center mt-4 transition-all duration-300`} style={{ width: widthCalc }}>
-          <div className="flex items-center w-full max-w-xl relative">
-            <input
-              type="text"
-              placeholder="Message Chatbot"
-              value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
-              onKeyDown={handleKeyDown}
-              className="flex-grow pr-12 p-3 border-none rounded-full bg-slate-300 focus:outline-none placeholder-slate-500 text-lg shadow-xl"
-            />
-            <button
-              className="absolute right-2 bg-none text-white shadow-2xl font-normal text-base cursor-pointer"
-              onClick={handleSendMessage}
-            >
-              <BsFillArrowUpCircleFill fontSize={34} color="#1f2937" />
-            </button>
+        <div className={`fixed-search-bar l-${ml} flex justify-center mt-4 transition-all duration-300`} style={{ width: widthCalc }}>
+            <div className="flex items-center w-full max-w-xl relative">
+              <input
+                type="text"
+                placeholder="Message Chatbot"
+                value={inputMessage}
+                onChange={(e) => setInputMessage(e.target.value)}
+                onKeyDown={handleKeyDown}
+                className="flex-grow pr-12 p-3 border-none rounded-full bg-slate-300 focus:outline-none placeholder-slate-500 text-lg shadow-xl"
+              />
+              <button
+                className="absolute right-2 bg-none text-white shadow-2xl font-normal text-base cursor-pointer"
+                onClick={handleSendMessage}
+              >
+                <BsFillArrowUpCircleFill fontSize={34} color="#1f2937" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
     </div>
   )
 }
