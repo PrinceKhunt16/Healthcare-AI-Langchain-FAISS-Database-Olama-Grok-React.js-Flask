@@ -43,7 +43,7 @@ const ResourceFinder = () => {
             <div className="flex items-center w-full max-w-xl relative">
               <input
                 type="text"
-                placeholder="What do you wanna see?"
+                placeholder="What do you wanna find?"
                 className="flex-grow pr-12 p-3 border-none rounded-full bg-slate-300 focus:outline-none placeholder-slate-500 text-lg shadow-xl"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
