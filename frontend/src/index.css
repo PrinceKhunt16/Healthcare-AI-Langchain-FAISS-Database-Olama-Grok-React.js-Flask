@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    font-family: Commissioner;
+    font-family: "Proza Libre";
 }
 
 .active-link {
